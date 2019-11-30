@@ -23,7 +23,8 @@ class FormController extends Controller
     {
         if ($request->action == 'back') {
             // pattern ①
-            return redirect()->to(config('app.url') .  "create/") // 絶対URLあてにredirectすると、trailing slashが削除されないで済む
+            return redirect()
+                ->to(config('app.url') .  "create/") // 絶対URLあてにredirectすると、"trailing slash"が削除されないで済む
                 ->withInput($request->only('title')); // 入力データをフラッシュデータとして保存
 
             // pattern ②
